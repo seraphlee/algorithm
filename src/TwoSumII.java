@@ -15,10 +15,6 @@ public class TwoSumII {
         int[] result = new int[2];
 
         while(start < end){
-            if(numbers[end] > target && numbers[end] != 0 && numbers[start] > 0) {
-                end--;
-                continue;
-            }
 
             if(numbers[start] + numbers[end] > target)
                 end--;
