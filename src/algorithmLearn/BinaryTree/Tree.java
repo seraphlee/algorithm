@@ -1,11 +1,12 @@
-package BinaryTree;
+package algorithmLearn.BinaryTree;
 
 import java.util.Stack;
 
-public class Demo {
+public class Tree {
     //节点定义
-    public class TreeNode {
+    public static class TreeNode {
         int val;
+        TreeNode parent;
         TreeNode left;
         TreeNode right;
 
@@ -15,7 +16,7 @@ public class Demo {
     }
 
     /**
-     * 初始化一颗树
+     * 返回一颗二叉树
      *  2
      * / \
      * 7  5
@@ -27,7 +28,7 @@ public class Demo {
      * 中序：417692853
      * 后序：419678352
      */
-    public TreeNode init() {
+    public static TreeNode init() {
         TreeNode root = new TreeNode(2);
         TreeNode node1 = new TreeNode(7);
         TreeNode node2 = new TreeNode(5);
@@ -50,8 +51,60 @@ public class Demo {
         return root;
     }
 
+    /**
+     * 返回一颗二叉搜索树
+     *  6
+     * / \
+     * 3  8
+     * /\  /\
+     * 2 4 7 9
+     * /  \
+     * 1   5
+     * 前序：632145879
+     * 中序：123456789
+     * 后序：125437986
+     */
+    public static TreeNode initSearchTree() {
+        TreeNode root = new TreeNode(6);
+        TreeNode node1 = new TreeNode(3);
+        TreeNode node2 = new TreeNode(8);
+        TreeNode node3 = new TreeNode(2);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(7);
+        TreeNode node6 = new TreeNode(9);
+        TreeNode node7 = new TreeNode(1);
+        TreeNode node8 = new TreeNode(5);
+
+        root.left = node1;
+        root.right = node2;
+
+        node1.parent = root;
+        node1.left = node3;
+        node1.right = node4;
+
+        node2.parent = root;
+        node2.left = node5;
+        node2.right = node6;
+
+        node3.left = node7;
+        node3.parent = node1;
+
+        node4.right = node8;
+        node4.parent = node1;
+
+        node5.parent = node2;
+
+        node6.parent = node2;
+
+        node7.parent = node3;
+
+        node8.parent = node4;
+
+        return root;
+    }
+
     public static void main(String[] args) {
-        Demo tree = new Demo();
+        Tree tree = new Tree();
         TreeNode root = tree.init();
         //tree.preOrder(root);
         //tree.preOrderDev(root);
@@ -61,7 +114,7 @@ public class Demo {
     }
 
     //前序遍历递归实现
-    public void preOrder(TreeNode root) {
+    public static void preOrder(TreeNode root) {
         if (root == null) {
             return;
         }
@@ -72,7 +125,7 @@ public class Demo {
     }
 
     //前序遍历非递归实现
-    public void preOrderDev(TreeNode root) {
+    public static void preOrderDev(TreeNode root) {
         if (root == null) {
             return;
         }
@@ -99,7 +152,7 @@ public class Demo {
     }
 
     //中序遍历递归实现
-    public void middleOrder(TreeNode root) {
+    public static void middleOrder(TreeNode root) {
         if(root == null)
             return;
 
@@ -127,7 +180,7 @@ public class Demo {
     }
 
     //后序遍历递归实现
-    public void postOrder(TreeNode root) {
+    public static void postOrder(TreeNode root) {
         if(root == null)
             return;
 
@@ -137,7 +190,7 @@ public class Demo {
     }
 
     //后序遍历非递归实现
-    public void postOrderDev(TreeNode root) {
+    public static void postOrderDev(TreeNode root) {
         if(root == null)
             return;
 
