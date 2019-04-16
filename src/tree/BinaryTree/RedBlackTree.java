@@ -1,6 +1,4 @@
-package algorithmLearn.BinaryTree;
-
-import javax.swing.*;
+package tree.BinaryTree;
 
 public class RedBlackTree {
     private static final int RED = 0;
