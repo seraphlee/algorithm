@@ -7,20 +7,6 @@ import java.util.List;
  * N叉树的层序遍历
  */
 public class NaryTreeLevelOrderTraversal {
-    static class Node {
-        public int val;
-        public List<Node> children = new ArrayList<>();
-
-        public Node(int val) {
-            this.val = val;
-        }
-
-        public Node(int val, List<Node> children) {
-            this.val = val;
-            this.children = children;
-        }
-    }
-
 
     public static List<List<Integer>> levelOrder(Node root) {
         List<List<Integer>> ret = new ArrayList<>();
